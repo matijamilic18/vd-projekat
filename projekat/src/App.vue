@@ -2,7 +2,7 @@
 <div>
   <nav class="navbar">
       <div id = "nav">
-          <router-link to="/"><img src="./assets/jzma.jpg" class = "logo"></router-link>
+          <router-link to="/"><img src="./assets/jzma.png" class = "logo"></router-link>
           <router-link to="/"><h1 class="naziv">si djin ping</h1></router-link>
       </div>
   </nav>
