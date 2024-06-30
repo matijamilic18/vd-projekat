@@ -1,0 +1,6 @@
+index page
+  -> Ne vidi se TOP 3 Hasa, sakriveni su iza navbara
+  -> nav gde je naslov restorana je drugacije boje od nav-a za meni ispod
+  -> slika nije lepo strecovana preko cele stranice
+  -> naslovi za promocije i ostalo se slabo vide
+  -> treba resiti problem boja, da lepo koristimo te boje na ostalim stranicama isto 
