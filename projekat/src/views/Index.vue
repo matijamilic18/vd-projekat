@@ -1,0 +1,235 @@
+<template>
+  <div class="home">
+   
+    <section class="top-dishes">
+        <h2>Top 3 Hasa</h2>
+        <div class="dish">
+            <div class="dish-box">
+                <img src="../assets/has.jpg" alt="Dish 1">
+                <h3>Dish Name 1</h3>
+                <p class="price">1000</p>
+            </div>
+        </div>
+        <div class="dish">
+            <div class="dish-box">
+                <img src="../assets/has.jpg" alt="Dish 2">
+                <h3>Dish Name 2</h3>
+                <p class="price">1000</p>
+            </div>
+        </div>
+        <div class="dish">
+            <div class="dish-box">
+                <img src="../assets/has.jpg" alt="Dish 3">
+                <h3>Dish Name 3</h3>
+                <p class="price">1000</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="promotions">
+        <h2>Promocije</h2>
+        <div class="promotion">
+            <div class="promotion-box">
+                <img src="../assets/has2.jpg" alt="Promo 1">
+                <h3>Promotion Dish 1</h3>
+                <p class="price">1000</p>
+            </div>
+        </div>
+        <div class="promotion">
+            <div class="promotion-box">
+                <img src="../assets/has2.jpg" alt="Promo 2">
+                <h3>Promotion Dish 2</h3>
+                <p class="price">1000</p>
+            </div>
+        </div>
+        <div class="promotion">
+            <div class="promotion-box">
+                <img src="../assets/has2.jpg" alt="Promo 3">
+                <h3>Promotion Dish 3</h3>
+                <p class="price">1000</p>
+            </div>
+        </div>
+        <div class="promotion">
+            <div class="promotion-box">
+                <img src="../assets/has2.jpg" alt="Promo 4">
+                <h3>Promotion Dish 4</h3>
+                <p class="price">1000</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="chef">
+        <h2>Meet Our Chef</h2>
+        <div class="chef-container">
+            <div class="chef-box">
+                <img src="../assets/sef.jpg" alt="Chef">
+            </div>
+            <div class="chef-box chef-info">
+                <p>Nas kuvar je sjajan, svi volimo bas ovog kuvara i on mnogo voli nas, radi vec 20 godina za nas. Super kuvar.</p>
+            </div>
+        </div>
+    </section>
+ 
+  </div>
+  </template>
+
+
+  
+<script>
+    export default{
+      name: 'Index',
+      
+    }
+
+
+
+</script>
+
+
+<style scoped>
+  
+
+/* In your external CSS file (styles.css) */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    margin: 10px 0;
+}
+
+h2 {
+    word-spacing: 2px;
+    text-transform: capitalize;
+    background: linear-gradient(90deg, #28a745, #008000, #28a745); /* Brighter green gradient for titles */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.top-dishes, .promotions, .chef {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.dish, .promotion {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+}
+
+.dish-box, .promotion-box, .chef-box {
+    background-color: rgba(0, 0, 0, 0.7); 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: inline-block;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.dish-box img, .promotion-box img, .chef-box img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    padding: 10px;
+}
+
+.dish-box:hover, .promotion-box:hover, .chef-box:hover {
+    transform: scale(1.05);
+}
+
+.dish-box:hover h3, .dish-box:hover .price,
+.promotion-box:hover h3, .promotion-box:hover .price,
+.chef-box:hover p {
+    color: #fa0202; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: none;
+    -webkit-text-fill-color: inherit; 
+}
+
+.dish-box h3, .promotion-box h3, .chef-info p, .price {
+    word-spacing: 2px;
+    text-transform: capitalize;
+    background: linear-gradient(90deg, #f73100, #9b2424, #f73100); /* Red gradient text color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes hover-underline-animation {
+    0% {
+        transform: scaleX(0);
+        transform-origin: 0 0;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: 0 0;
+    }
+}
+
+.dish-box:hover::after, .promotion-box:hover::after, .chef-box:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color:#fa0202; 
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: transform 0.3s;
+    animation: hover-underline-animation 0.3s forwards;
+}
+
+.chef {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chef-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.chef-box {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.chef-box img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.chef-info {
+    max-width: 600px;
+}
+
+
+
+</style>
