@@ -9,7 +9,7 @@
   </nav>
   <nav class="breadcrumb-nav">
         <ul>
-            <li class="line"> | </li>
+            <li class="ne"> | </li>
             <li><a href="/">Početna</a></li>
             <li class="line"> | </li>
             <li class="dropdown">
@@ -27,7 +27,10 @@
             <li class="line"> | </li>
             <li><a href="#">Moj Nalog</a></li>
             <li class="line"> | </li>
-            <li><a href="#">O Nama</a></li>
+            <router-link to="/about">
+                <li><a href="#" >O Nama</a></li>
+            </router-link>
+            
             <li class="line"> | </li>
         </ul>
   </nav>
@@ -60,6 +63,9 @@
     z-index: 1000;
 }
 
+.ne{
+    color:black;
+}
 /* Breadcrumb navigation (below navbar) */
 .breadcrumb-nav {
     background-color: rgb(0, 0, 0);
@@ -140,6 +146,7 @@ footer {
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
+
 .breadcrumb-nav a:hover {
     color: #fa0202; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -167,6 +174,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
     height: 100vh;
