@@ -49,7 +49,7 @@
 
 <style scoped>
 .about-page-wrapper {
-  padding-top: 120px; /* Adjust this value to move the content down as needed */
+
   min-height: 100vh;
   box-sizing: border-box;
   display: flex;

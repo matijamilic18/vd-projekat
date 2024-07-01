@@ -30,15 +30,15 @@
             <li class="line"> | </li>
             <li><a href="#">Moj Nalog</a></li>
             <li class="line"> | </li>
-            <router-link to="/about">
+            <router-link to="/onama">
                 <li><a href="#" >O Nama</a></li>
             </router-link>
             
             <li class="line"> | </li>
         </ul>
   </nav>
-  
-
+  <Breadcrumbs />
+  <router-view/>
    <footer> 
       <div class="footer-bottom">
       <p>  „Copyright 2024, Матија Милић/Лазар Крповић, Одсек за софтверско инжењерство Електротехничког факултета Универзитета у Београду“ </p>
@@ -46,11 +46,23 @@
   </footer>
 
 
-  <router-view/>
+  
 
 </div>
   
 </template>
+
+
+<script>
+import Breadcrumbs from './components/Breadcrumbs.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Breadcrumbs
+  }
+}
+</script>
 
 <style>
 
