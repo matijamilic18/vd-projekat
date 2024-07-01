@@ -30,7 +30,7 @@
             <li class="line"> | </li>
             <li><a href="#">Moj Nalog</a></li>
             <li class="line"> | </li>
-            <router-link to="/onama">
+            <router-link to="/about">
                 <li><a href="#" >O Nama</a></li>
             </router-link>
             
@@ -38,7 +38,10 @@
         </ul>
   </nav>
   <Breadcrumbs />
-  <router-view/>
+  <div class="main-content">
+    <router-view/>
+  </div>
+  
    <footer> 
       <div class="footer-bottom">
       <p>  „Copyright 2024, Матија Милић/Лазар Крповић, Одсек за софтверско инжењерство Електротехничког факултета Универзитета у Београду“ </p>
@@ -65,6 +68,11 @@ export default {
 </script>
 
 <style>
+
+.main-content {
+  margin-top: 130px; /* Adjust this value to be below your fixed elements */
+  padding: 20px;
+}
 
 /* Navbar (above breadcrumb-nav) */
 #nav {

@@ -43,12 +43,15 @@
   
   <style scoped>
 .breadcrumbs {
-
-  margin-top:115px;
+  position: fixed;
+  top: 115px; /* Adjust this value to position it right under your navigation */
+  left: 0;
+  right: 0;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 10px 20px;
   width: 100%;
   box-sizing: border-box;
+  z-index: 998; /* Make sure this is less than your main navigation z-index */
 }
 
 .breadcrumbs ul {
