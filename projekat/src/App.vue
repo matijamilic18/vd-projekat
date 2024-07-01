@@ -15,7 +15,7 @@
             <li class="dropdown">
                 <router-link to="/meni"><a href="#">Meni</a></router-link>
                 <ul class="dropdown-content">
-                    <li><a href="#">Predjela</a></li>
+                    <router-link to="/predjela"><li><a href="#">Predjela</a></li></router-link>
                     <li><a href="#">Glavna Jela</a></li>
                     <li><a href="#">Dezerti</a></li>
                     <li><a href="#">Pića</a></li>
