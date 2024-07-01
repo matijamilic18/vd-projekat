@@ -26,40 +26,52 @@
         </div>
     </section>
 
+<!--
+
     <section class="promotions">
         <h2>Promocije</h2>
         <div class="promotion">
             <div class="promotion-box">
-                <img src="../assets/has2.jpg" alt="Promo 1">
-                <h3>Promotion Dish 1</h3>
-                <p class="price">1000</p>
+                <img src="/images/photo3.jpg" alt="Promo 1">
+                <h3>Edamame</h3>
+                <p class="price">Cena:1000din</p>
+                <p class="price">Ocena:1000/5</p>
+                <button class="order-button">Naruči</button>
             </div>
         </div>
         <div class="promotion">
             <div class="promotion-box">
-                <img src="../assets/has2.jpg" alt="Promo 2">
-                <h3>Promotion Dish 2</h3>
-                <p class="price">1000</p>
+                <img src="/images/photo6.jpg" alt="Promo 2">
+                <h3>Lo Mein</h3>
+                <p class="price">Cena:1000din</p>
+                <p class="price">Ocena:1000/5</p>
+                <button class="order-button">Naruči</button>
             </div>
         </div>
         <div class="promotion">
             <div class="promotion-box">
-                <img src="../assets/has2.jpg" alt="Promo 3">
-                <h3>Promotion Dish 3</h3>
-                <p class="price">1000</p>
+                <img src="/images/photo9.jpg" alt="Promo 3">
+                <h3>Misandao</h3>
+                <p class="price">Cena:1000din</p>
+                <p class="price">Ocena:1000/5</p>
+                <button class="order-button">Naruči</button>
+
             </div>
         </div>
         <div class="promotion">
             <div class="promotion-box">
-                <img src="../assets/has2.jpg" alt="Promo 4">
-                <h3>Promotion Dish 4</h3>
-                <p class="price">1000</p>
+                <img src="/images/photo1.jpg" alt="Promo 4">
+                <h3>Prolecne Rolnice</h3>
+                <p class="price">Cena:1000DIN</p>
+                <p class="price">Cena:1000/5</p>
+                <button class="order-button">Naruči</button>
+
             </div>
         </div>
     </section>
 
     <section class="chef">
-        <h2>Meet Our Chef</h2>
+        <h2>Upoznajte Sefa Kuhinje</h2>
         <div class="chef-container">
             <div class="chef-box">
                 <img src="../assets/sef.jpg" alt="Chef">
@@ -69,7 +81,23 @@
             </div>
         </div>
     </section>
- 
+ -->
+  
+  <section class = "promotions">
+     <h2>Promocije </h2>
+        <div class="promotion" v-for="d of filterPromo" :key="d.ime">
+            <div class="promotion-box">
+            <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
+                <h3>{{d.ime}}</h3>              
+                <p class="price">Cena:{{d.cena}}din</p>
+                <p class="price">Ocena:{{d.ocena}}/5</p>
+                <button class="order-button">Naruči</button>
+
+            </div>
+        </div>
+  </section>
+  
+  
   </div>
   </template>
 
@@ -77,9 +105,52 @@
   
 <script>
     export default{
-      name: 'Index',
-      
+    name: 'Index',
+    created(){
+    if(localStorage.getItem("allDishes")==null){
+        this.allDishes = [
+            {ime: "Prolecne Rolnice", tip: "p", cena: "300", ocena: "0", slikaIndex: "1.jpg", promocija: "d"},
+            {ime: "Miso supa", tip: "p", cena: "450", ocena: "0", slikaIndex: "2.jpg", promocija: "n"},
+            {ime: "Edamame", tip: "p", cena: "100", ocena: "0", slikaIndex: "3.jpg", promocija: "n"},
+
+
+            {ime: "Kung Pao Piletina", tip: "g", cena: "1500", ocena: "0", slikaIndex: "4.jpg", promocija: "d"},
+            {ime: "Slatko Ljuta Teletina", tip: "g", cena: "1000", ocena: "0", slikaIndex: "5.jpg", promocija: "n"},
+            {ime: "Lo Mein", tip: "g", cena: "800", ocena: "0", slikaIndex: "6.jpg", promocija: "n"},
+
+            
+
+            {ime: "Pohovani Sladoled", tip: "d", cena: "289", ocena: "0", slikaIndex: "7.jpg", promocija: "d"},
+            {ime: "Pohovana Banana sa Cokoladom", tip: "d", cena: "300", ocena: "0", slikaIndex: "8.jpg", promocija: "n"},
+            {ime: "Misandao", tip: "d", cena: "199", ocena: "0", slikaIndex: "9.jpg", promocija: "n"},
+
+            {ime: "Zeleni Caj", tip: "pice", cena: "2000", ocena: "0", slikaIndex: "10.jpg", promocija: "d"},
+            {ime: "Voda", tip: "pice", cena: "1", ocena: "0", slikaIndex: "11.jpg", promocija: "n"},
+            {ime: "Sake", tip: "pice", cena: "420", ocena: "0", slikaIndex: "12.jpg", promocija: "n"},]
+
+            localStorage.setItem = ("allDishes", JSON.stringify(this.allDishes))
     }
+    else{
+        this.allDishes=JSON.parse(localStorage.getItem("allDishes"))
+    }
+    },
+    data(){
+        return{
+            ime: '',
+            cena: '',
+            tip: '', /* g=glavno jelo, d=dezert, p=predjelo, pice=pice*/
+            ocena: '',
+            slikaIndex: '',
+            promocija: '',
+           allDishes: []
+        }
+    },
+    computed: {
+      filterPromo() {
+        return this.allDishes.filter(dish => dish.promocija == "d");
+      }
+    }  
+}
 
 
 
@@ -88,6 +159,30 @@
 
 <style scoped>
   
+.order-button {
+    background-color: #f73100; /* Reddish color */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-button:hover {
+    background-color: #d62800; /* Darker reddish color on hover */
+    transform: translateY(-2px);
+}
+
+.order-button:active {
+    background-color: #bf2400; /* Even darker reddish color on click */
+    transform: translateY(0);
+}
+
 
 /* In your external CSS file (styles.css) */
 
@@ -140,9 +235,17 @@ h2 {
     overflow: hidden;
 }
 
-.dish-box img, .promotion-box img, .chef-box img {
+ .dish-box img, .promotion-box img, .chef-box img {
     width: 200px;
     height: auto;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    padding: 10px;
+}
+
+.promotion-box img, .dish-box img{
+    width: 200px;
+    height: 150px;
     border-radius: 8px;
     border: 2px solid #fff;
     padding: 10px;

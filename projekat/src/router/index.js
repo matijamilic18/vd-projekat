@@ -3,6 +3,9 @@ import Index from '../views/Index.vue'
 import Galerija from '../views/Galerija.vue'
 import Predjela from '../views/Predjela.vue'
 import Meni from '../views/Meni.vue'
+import GlavnaJela from '../views/GlavnaJela.vue'
+import Dezerti from '../views/Dezerti.vue'
+import Pica from '../views/Pica.vue'
 
 
 
@@ -30,12 +33,28 @@ const routes = [
     path: '/meni',
     name: 'Meni',
     component: Meni
-  }
-  ,
+  },
   {
     path: '/predjela',
     name: 'Predjela',
     component: Predjela
+  }
+  ,
+  {
+    path: '/glavnajela',
+    name: 'GlavnaJela',
+    component: GlavnaJela
+  },
+  {
+    path: '/dezerti',
+    name: 'Dezerti',
+    component: Dezerti
+  }
+  ,
+  {
+    path: '/pica',
+    name: 'Pica',
+    component: Pica
   }
 ]
 

@@ -16,9 +16,9 @@
                 <router-link to="/meni"><a href="#">Meni</a></router-link>
                 <ul class="dropdown-content">
                     <router-link to="/predjela"><li><a href="#">Predjela</a></li></router-link>
-                    <li><a href="#">Glavna Jela</a></li>
-                    <li><a href="#">Dezerti</a></li>
-                    <li><a href="#">Pića</a></li>
+                    <router-link to="/glavnajela"><li><a href="#">Glavna Jela</a></li></router-link>
+                    <router-link to="/dezerti"><li><a href="#">Dezerti</a></li></router-link>
+                    <router-link to="/pica"><li><a href="#">Pića</a></li></router-link>
                     
                 </ul>
             </li>

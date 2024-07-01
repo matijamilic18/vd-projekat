@@ -3,8 +3,8 @@
     
     <section class = "top-dishes" >
         
-        <h2>Predjela </h2>
-        <div class="dish" v-for="d of filterPredjela" :key="d.ime">
+        <h2>Pica </h2>
+        <div class="dish" v-for="d of filterPica" :key="d.ime">
             <div class="dish-box">
             <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
                 <h3>{{d.ime}}</h3>              
@@ -16,42 +16,6 @@
         </div>
 
     
-        <h2>Glavna Jela </h2>
-        <div class="dish" v-for="d of filterGlavnaJela" :key="d.ime">
-            <div class="dish-box">
-                <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
-                <h3>{{d.ime}}</h3>
-                <p class="price">Cena:{{d.cena}}din</p>
-                <p class="price">Ocena:{{d.ocena}}/5</p>
-                <button class="order-button">Naruči</button>
-
-            </div>
-        </div>
-
-        <h2>Dezert </h2>
-        <div class="dish" v-for="d of filterDezert" :key="d.ime">
-            <div class="dish-box">
-                <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
-                <h3>{{d.ime}}</h3>
-                <p class="price">Cena:{{d.cena}}din</p>
-                <p class="price">Ocena:{{d.ocena}}/5</p>
-                <button class="order-button">Naruči</button>
-
-            </div>
-        </div>
-
-        <h2>Pića </h2>
-        <div class="dish" v-for="d of filterPica" :key="d.ime">
-            <div class="dish-box">
-               <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
-                <h3>{{d.ime}}</h3>
-                <p class="price">Cena:{{d.cena}}din</p>
-                <p class="price">Ocena:{{d.ocena}}/5</p>
-                <button class="order-button">Naruči</button>
-
-            </div>
-        </div>
-
     </section>
 
 
@@ -95,24 +59,16 @@ export default {
             tip: '', /* g=glavno jelo, d=dezert, p=predjelo, pice=pice*/
             ocena: '',
             slikaIndex: '',
-           allDishes: []
+           
+            allDishes: []
         }
     },
     computed: {
-      filterPredjela() {
-        return this.allDishes.filter(dish => dish.tip == "p");
-      },
-      filterGlavnaJela() {
-        return this.allDishes.filter(dish => dish.tip == "g");
-      },
-      filterDezert() {
-        return this.allDishes.filter(dish => dish.tip == "d");
-      },
       filterPica() {
         return this.allDishes.filter(dish => dish.tip == "pice");
       }
-    }
 
+    }
 }
 </script>
 
@@ -144,6 +100,7 @@ export default {
 
 
 body {
+
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -245,6 +202,10 @@ h2 {
     transition: transform 0.3s;
     animation: hover-underline-animation 0.3s forwards;
 }
+
+
+
+
 
 
 </style>
