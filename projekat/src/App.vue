@@ -23,7 +23,10 @@
                 </ul>
             </li>
             <li class="line"> | </li>
-            <li><a href="#">Galerija</a></li>
+            <router-link to="/galerija">
+                <li><a href="#">Galerija</a></li>
+            </router-link>
+            
             <li class="line"> | </li>
             <li><a href="#">Moj Nalog</a></li>
             <li class="line"> | </li>

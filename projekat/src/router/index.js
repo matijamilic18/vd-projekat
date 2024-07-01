@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Index from '../views/Index.vue'
+import Galerija from '../views/Galerija.vue'
 
 const routes = [
   {
@@ -15,7 +16,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-  
+  {
+    path: '/galerija',
+    name: 'Galerija',
+    component: Galerija
+  }
 ]
 
 const router = createRouter({
