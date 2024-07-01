@@ -4,7 +4,7 @@
   <nav class="navbar">
       <div id = "nav">
           <router-link to="/"><img src="./assets/jzma.png" class = "logo"></router-link>
-          <router-link to="/"><h1 class="naziv">bot diff</h1></router-link>
+          <router-link to="/"><h1 class="naziv">Zmajeva Palata</h1></router-link>
       </div>
   </nav>
   <nav class="breadcrumb-nav">
@@ -13,7 +13,7 @@
             <li><a href="/">Početna</a></li>
             <li class="line"> | </li>
             <li class="dropdown">
-                <a href="#">Meni</a>
+                <router-link to="/meni"><a href="#">Meni</a></router-link>
                 <ul class="dropdown-content">
                     <li><a href="#">Predjela</a></li>
                     <li><a href="#">Glavna Jela</a></li>

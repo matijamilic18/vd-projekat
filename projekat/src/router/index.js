@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Index from '../views/Index.vue'
 import Galerija from '../views/Galerija.vue'
+import Meni from '../views/Meni.vue'
+
 
 const routes = [
   {
@@ -20,6 +22,11 @@ const routes = [
     path: '/galerija',
     name: 'Galerija',
     component: Galerija
+  },
+  {
+    path: '/meni',
+    name: 'Meni',
+    component: Meni
   }
 ]
 
