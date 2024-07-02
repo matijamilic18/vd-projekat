@@ -69,8 +69,25 @@
             </div>
         </div>
     </section>
+-->
+    
+ 
+  
+  <section class = "promotions">
+     <h2>Promocije </h2>
+        <div class="promotion" v-for="d of filterPromo" :key="d.ime">
+            <div class="promotion-box">
+            <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
+                <h3>{{d.ime}}</h3>              
+                
+                <p class="price">Ocena:{{d.ocena}}/5</p>
+                
 
-    <section class="chef">
+            </div>
+        </div>
+  </section>
+  
+  <section class="chef">
         <h2>Upoznajte Sefa Kuhinje</h2>
         <div class="chef-container">
             <div class="chef-box">
@@ -81,22 +98,6 @@
             </div>
         </div>
     </section>
- -->
-  
-  <section class = "promotions">
-     <h2>Promocije </h2>
-        <div class="promotion" v-for="d of filterPromo" :key="d.ime">
-            <div class="promotion-box">
-            <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
-                <h3>{{d.ime}}</h3>              
-                <p class="price">Cena:{{d.cena}}din</p>
-                <p class="price">Ocena:{{d.ocena}}/5</p>
-                <button class="order-button">Naruči</button>
-
-            </div>
-        </div>
-  </section>
-  
   
   </div>
   </template>
@@ -109,26 +110,26 @@
     created(){
     if(localStorage.getItem("allDishes")==null){
         this.allDishes = [
-            {ime: "Prolecne Rolnice", tip: "p", cena: "300", ocena: "0", slikaIndex: "1.jpg", promocija: "d"},
-            {ime: "Miso supa", tip: "p", cena: "450", ocena: "0", slikaIndex: "2.jpg", promocija: "n"},
-            {ime: "Edamame", tip: "p", cena: "100", ocena: "0", slikaIndex: "3.jpg", promocija: "n"},
+            {ime: "Prolecne Rolnice", tip: "p", cenaV: "300", cenaM:"200", ocena: "0", slikaIndex: "1.jpg", promocija: "d"},
+            {ime: "Miso supa", tip: "p", cenaV: "450", cenaM:"350", ocena: "0", slikaIndex: "2.jpg", promocija: "n"},
+            {ime: "Edamame", tip: "p", cenaV: "100",cenaM:"50", ocena: "0", slikaIndex: "3.jpg", promocija: "n"},
 
 
-            {ime: "Kung Pao Piletina", tip: "g", cena: "1500", ocena: "0", slikaIndex: "4.jpg", promocija: "d"},
-            {ime: "Slatko Ljuta Teletina", tip: "g", cena: "1000", ocena: "0", slikaIndex: "5.jpg", promocija: "n"},
-            {ime: "Lo Mein", tip: "g", cena: "800", ocena: "0", slikaIndex: "6.jpg", promocija: "n"},
+            {ime: "Kung Pao Piletina", tip: "g", cenaV: "1500", cenaM:"1000",ocena: "0", slikaIndex: "4.jpg", promocija: "d"},
+            {ime: "Slatko Ljuta Teletina", tip: "g", cenaV: "1000",cenaM:"900", ocena: "0", slikaIndex: "5.jpg", promocija: "n"},
+            {ime: "Lo Mein", tip: "g", cenaV: "800",cenaM:"400", ocena: "0", slikaIndex: "6.jpg", promocija: "n"},
 
             
 
-            {ime: "Pohovani Sladoled", tip: "d", cena: "289", ocena: "0", slikaIndex: "7.jpg", promocija: "d"},
-            {ime: "Pohovana Banana sa Cokoladom", tip: "d", cena: "300", ocena: "0", slikaIndex: "8.jpg", promocija: "n"},
-            {ime: "Misandao", tip: "d", cena: "199", ocena: "0", slikaIndex: "9.jpg", promocija: "n"},
+            {ime: "Pohovani Sladoled", tip: "d", cenaV: "289",cenaM:"189", ocena: "0", slikaIndex: "7.jpg", promocija: "d"},
+            {ime: "Pohovana Banana sa Cokoladom", tip: "d", cenaV: "300",cenaM:"200", ocena: "0", slikaIndex: "8.jpg", promocija: "n"},
+            {ime: "Misandao", tip: "d", cenaV: "199", cenaM:"100",ocena: "0", slikaIndex: "9.jpg", promocija: "n"},
 
-            {ime: "Zeleni Caj", tip: "pice", cena: "2000", ocena: "0", slikaIndex: "10.jpg", promocija: "d"},
-            {ime: "Voda", tip: "pice", cena: "1", ocena: "0", slikaIndex: "11.jpg", promocija: "n"},
-            {ime: "Sake", tip: "pice", cena: "420", ocena: "0", slikaIndex: "12.jpg", promocija: "n"},]
+            {ime: "Zeleni Caj", tip: "pice", cenaV: "2000", cenaM:"1000", ocena: "0", slikaIndex: "10.jpg", promocija: "d"},
+            {ime: "Voda", tip: "pice", cenaV: "1", cenaM:"1",ocena: "0", slikaIndex: "11.jpg", promocija: "n"},
+            {ime: "Sake", tip: "pice", cenaV: "420", cenaM:"320",ocena: "0", slikaIndex: "12.jpg", promocija: "n"},]
 
-            localStorage.setItem = ("allDishes", JSON.stringify(this.allDishes))
+            localStorage.setItem("allDishes", JSON.stringify(this.allDishes))
     }
     else{
         this.allDishes=JSON.parse(localStorage.getItem("allDishes"))

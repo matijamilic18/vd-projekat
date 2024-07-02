@@ -6,6 +6,7 @@ import Meni from '../views/Meni.vue'
 import GlavnaJela from '../views/GlavnaJela.vue'
 import Dezerti from '../views/Dezerti.vue'
 import Pica from '../views/Pica.vue'
+import PregledJela from '../views/PregledJela.vue'
 
 
 
@@ -55,6 +56,11 @@ const routes = [
     path: '/pica',
     name: 'Pica',
     component: Pica
+  },
+  {
+    path: '/pregledjela',
+    name: 'PregledJela',
+    component: PregledJela
   }
 ]
 
