@@ -2,7 +2,7 @@
     <div class="meni">
       <section class="top-dishes">
         <h2>{{ $t('menu.drinks') }}</h2>
-        <div class="dish" v-for="d of filterPica" :key="d.ime">
+        <div class="dish" v-for="d of filterPica" :key="d.ime" @click='fun(d)'>
           <div class="dish-box">
             <img :src="'/images/photo' + d.slikaIndex" alt="Dish Image">
             <h3>{{ $t(`menu.dishes.${d.ime}`) }}</h3>
@@ -52,6 +52,13 @@ export default {
         return this.allDishes.filter(dish => dish.tip == "pice");
       }
 
+    },
+    methods:{
+        fun(d){           
+            let curr = {ime: d.ime, tip: d.tip, cenaV: d.cenaV, cenaM: d.cenaM, ocena: d.ocena, slikaIndex: d.slikaIndex, promocija: d.promocija}
+            localStorage.setItem('currDish', JSON.stringify(curr))
+            this.$router.push('pregledjela')
+        }
     }
 }
 </script>
