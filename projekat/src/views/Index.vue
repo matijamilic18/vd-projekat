@@ -3,21 +3,21 @@
    
     <section class="top-dishes">
         <h2>Top 3 Hasa</h2>
-        <div class="dish">
+        <div class="dish" @click='fun(d)'>
             <div class="dish-box">
                 <img src="../assets/has.jpg" alt="Dish 1">
                 <h3>Dish Name 1</h3>
                 <p class="price">1000</p>
             </div>
         </div>
-        <div class="dish">
+        <div class="dish" @click='fun(d)'>
             <div class="dish-box">
                 <img src="../assets/has.jpg" alt="Dish 2">
                 <h3>Dish Name 2</h3>
                 <p class="price">1000</p>
             </div>
         </div>
-        <div class="dish">
+        <div class="dish" @click='fun(d)'>
             <div class="dish-box">
                 <img src="../assets/has.jpg" alt="Dish 3">
                 <h3>Dish Name 3</h3>
@@ -75,7 +75,7 @@
   
   <section class = "promotions">
      <h2>Promocije </h2>
-        <div class="promotion" v-for="d of filterPromo" :key="d.ime">
+        <div class="promotion" v-for="d of filterPromo" :key="d.ime" @click='fun(d)'>
             <div class="promotion-box">
             <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
                 <h3>{{d.ime}}</h3>              
@@ -108,6 +108,14 @@
     export default{
     name: 'Index',
     created(){
+    if(localStorage.getItem("korpa") == null){
+        let korpa = []
+        localStorage.setItem("korpa", JSON.stringify(korpa))
+    }
+    else{
+        this.korpa=JSON.parse(localStorage.getItem("korpa"))
+    }
+
     if(localStorage.getItem("allDishes")==null){
         this.allDishes = [
             {ime: "Prolecne Rolnice", tip: "p", cenaV: "300", cenaM:"200", ocena: "0", slikaIndex: "1.jpg", promocija: "d"},
@@ -143,14 +151,22 @@
             ocena: '',
             slikaIndex: '',
             promocija: '',
-           allDishes: []
+            allDishes: [],
+            korpa: []
         }
     },
     computed: {
       filterPromo() {
         return this.allDishes.filter(dish => dish.promocija == "d");
       }
-    }  
+    }  ,
+    methods:{
+        fun(d){           
+            let curr = {ime: d.ime, tip: d.tip, cenaV: d.cenaV, cenaM: d.cenaM, ocena: d.ocena, slikaIndex: d.slikaIndex, promocija: d.promocija}
+            localStorage.setItem('currDish', JSON.stringify(curr))
+            this.$router.push('pregledjela')
+        }
+    }
 }
 
 

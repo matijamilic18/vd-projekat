@@ -4,14 +4,14 @@
     <section class = "top-dishes" >
         
         <h2>Predjela </h2>
-        <div class="dish" v-for="d of filterPredjela" :key="d.ime">
+        <div class="dish" v-for="d of filterPredjela" :key="d.ime" @click='fun(d)'>
             <div class="dish-box" >
             <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
                 <h3>{{d.ime}}</h3>              
                 
                 <p class="price">Ocena:{{d.ocena}}/5</p>
                
-                <button  @click='fun(d)'> pogledaj jelo </button>
+                
             </div>
         </div>
 
@@ -73,7 +73,6 @@ export default {
     methods:{
         fun(d){           
             let curr = {ime: d.ime, tip: d.tip, cenaV: d.cenaV, cenaM: d.cenaM, ocena: d.ocena, slikaIndex: d.slikaIndex, promocija: d.promocija}
-            console.log(curr)
             localStorage.setItem('currDish', JSON.stringify(curr))
             this.$router.push('pregledjela')
         }

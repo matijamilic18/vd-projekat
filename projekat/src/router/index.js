@@ -7,6 +7,7 @@ import GlavnaJela from '../views/GlavnaJela.vue'
 import Dezerti from '../views/Dezerti.vue'
 import Pica from '../views/Pica.vue'
 import PregledJela from '../views/PregledJela.vue'
+import MojNalog from '../views/MojNalog.vue'
 
 
 
@@ -61,6 +62,11 @@ const routes = [
     path: '/pregledjela',
     name: 'PregledJela',
     component: PregledJela
+  },
+  {
+    path: '/mojnalog',
+    name: 'MojNalog',
+    component: MojNalog
   }
 ]
 
