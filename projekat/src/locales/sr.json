@@ -32,6 +32,10 @@
     "appetizers": "Predjela",
     "mainCourses": "Glavna Jela",
     "desserts": "Dezerti",
+    "searchPlaceholder": "Pretraži jela...",
+    "searchButton": "Pretraži",
+    "sortByName": "Sortiraj po imenu",
+    "sortByPrice": "Sortiraj po ceni",
     "drinks": "Pića",
     "rating": "Ocena",
     "viewDish": "Pogledaj Jelo",
@@ -49,5 +53,17 @@
       "water": "Voda",
       "sake": "Sake"
     }
-  }
+  },
+  
+    "dish": {
+      "title": "{{ ime }}",
+      "rating": "Ocena: ",
+      "largePortionPrice": "Cena Velike Porcije: ",
+      "smallPortionPrice": "Cena Male Porcije: ",
+      "chooseQuantity": "Izaberi Količinu:",
+      "addToCart": "Dodaj u Korpu",
+      "rateDish": "Oceni Jelo",
+      "addRating": "Dodaj Ocenu"
+    }
+ 
 }

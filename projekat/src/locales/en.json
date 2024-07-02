@@ -29,6 +29,10 @@
       "weekends": "Saturday - Sunday: 12:00 - 00:00"
     },
     "menu": {
+        "searchPlaceholder": "Search dishes...",
+        "searchButton": "Search",
+        "sortByName": "Sort by Name",
+        "sortByPrice": "Sort by Price",
       "appetizers": "Appetizers",
       "mainCourses": "Main Courses",
       "desserts": "Desserts",
@@ -49,6 +53,17 @@
         "water": "Water",
         "sake": "Sake"
       }
+    }
+    ,
+    "dish": {
+    "title": "{{ ime }}",
+    "rating": "Rating: ",
+    "largePortionPrice": "Large Portion Price: ",
+    "smallPortionPrice": "Small Portion Price: ",
+    "chooseQuantity": "Choose Quantity:",
+    "addToCart": "Add to Cart",
+    "rateDish": "Rate Dish",
+    "addRating": "Add Rating"
     }
   }
   

@@ -1,35 +1,34 @@
 <template>
     <div class="sve">
-        <h2 class="section-title">{{ currDish.ime }}</h2>
+        <h2 class="section-title">{{ $t(`menu.dishes.${this.currDish.ime}`) }}</h2>
         <div class="dish">
             <div class="dish-box">
-                <img :src="'/images/photo' + currDish.slikaIndex" alt="Dish Image">
-                <p class="rating">Ocena: {{ currDish.ocena }}/5</p>
+                <img :src="getImageUrl(this.currDish.slikaIndex)" alt="Dish Image">
+                <p class="rating">{{ $t('dish.rating') }} {{ this.currDish.ocena }}/5</p>
                 <div class="price">
                     <input type="radio" id="cenaV" value="velika" v-model="IzabranaPorcija">
-                    <label for="cenaV">Cena Velike Porcije: {{ currDish.cenaV }} din</label>
+                    <label for="cenaV">{{ $t('dish.largePortionPrice') }}{{this.currDish.cenaV}}din</label>
                 </div>
                 <div class="price">
                     <input type="radio" id="cenaM" value="mala" v-model="IzabranaPorcija" checked>
-                    <label for="cenaM">Cena Male Porcije: {{ currDish.cenaM }} din</label>
+                    <label for="cenaM">{{ $t('dish.smallPortionPrice') }}{{this.currDish.cenaM}}din</label>
                 </div>
                 <div class="quantity">
-                    <label for="kolicina">Izaberi Količinu:</label>
+                    <label for="kolicina">{{ $t('dish.chooseQuantity') }}</label>
                     <input type="number" id="kolicina" v-model="kolicina" min="1" max="10">
                 </div>
-                <button class="order-button" @click="add()">Dodaj u Korpu</button>
+                <button class="order-button" @click="add()">{{ $t('dish.addToCart') }}</button>
             </div>
         </div>
         <div class="rate-dish">
-            <h3>Oceni Jelo</h3>
+            <h3>{{ $t('dish.rateDish') }}</h3>
             <select v-model="userRating">
                 <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
             </select>
-            <button class="rate-button" @click="addRating">Dodaj Ocenu</button>
+            <button class="rate-button" @click="addRating">{{ $t('dish.addRating') }}</button>
         </div>
     </div>
 </template>
-
 <script>
 export default {
     name: 'PregledJela',
@@ -68,6 +67,9 @@ export default {
             this.korpa.push(item)
             localStorage.setItem('korpa', JSON.stringify(this.korpa))
             this.$router.push('/mojnalog')
+        },
+        getImageUrl(index) {
+            return `/images/photo${index}`;
         }
     }
 };

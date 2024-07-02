@@ -41,7 +41,7 @@
 .galerija-view {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.8);
-  margin-top: 100px;
+  margin-top: 0px;
   color: white;
   padding-bottom: 200px;
 }

@@ -5,7 +5,6 @@ import {createI18n} from 'vue-i18n';
 import en from './locales/en.json'
 import sr from './locales/sr.json'
 
-
 const i18n = createI18n({
     legacy: false, 
     locale: 'sr', 
