@@ -94,6 +94,25 @@ export default {
 </script>
 
 <style scoped>
+
+.download-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.download-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: darkred;
+}
 .account-page {
     color: #ff0000; /* Reddish color */
     font-size: 1.5em;

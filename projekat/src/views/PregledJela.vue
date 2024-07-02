@@ -27,6 +27,14 @@
             </select>
             <button class="rate-button" @click="addRating()">{{ $t('dish.addRating') }}</button>
         </div>
+
+        <section class="download-section">
+      <button class="download-button" @click="downloadPDF()">pdf</button>
+    </section>
+        
+       
+
+
     </div>
 </template>
 <script>
@@ -82,12 +90,37 @@ export default {
         },
         getImageUrl(index) {
             return `/images/photo${index}`;
-        }
+        }, 
+        downloadPDF() {
+        const link = document.createElement('a');
+        link.href = '/ZmajevaPalataJelovnik.pdf';
+        link.download = 'ZmajevaPalataJelovnik.pdf';
+        link.click();
+    }
     }
 };
 </script>
 
 <style scoped>
+
+.download-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.download-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: darkred;
+}
 /* Scoped styles for the component */
 .sve {
     color: #ff0000; /* Reddish color */

@@ -29,6 +29,10 @@
           </div>
         </div>
       </section>
+
+      <section class="download-section">
+      <button class="download-button" @click="downloadPDF()">pdf</button>
+    </section>
     </div>
   </template>
   
@@ -128,12 +132,37 @@
   
         
         return serbianName.toLowerCase().includes(searchText) || englishName.includes(searchText) || dish.cenaV.toString().includes(searchText);
-      }
+      }, 
+        downloadPDF() {
+        const link = document.createElement('a');
+        link.href = '/ZmajevaPalataJelovnik.pdf';
+        link.download = 'ZmajevaPalataJelovnik.pdf';
+        link.click();
+    }
     }
 }
 </script>
 
 <style scoped>
+
+  .download-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.download-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: darkred;
+}
 /* Button styling */
 .order-button {
     background-color: #f73100; /* Reddish color */

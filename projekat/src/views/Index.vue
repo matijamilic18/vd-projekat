@@ -13,7 +13,7 @@
     </section>
         
 
-
+    
     
  
   
@@ -29,6 +29,11 @@
             </div>
         </div>
   </section>
+
+    <section class="download-section">
+      <button class="download-button" @click="downloadPDF()">pdf</button>
+    </section>
+    
   
   <section class="chef">
         <h2>{{ $t('chef.title') }}</h2>
@@ -41,7 +46,10 @@
             </div>
         </div>
     </section>
-  
+    
+    
+    
+
   </div>
   </template>
 
@@ -111,7 +119,13 @@
             let curr = {ime: d.ime, tip: d.tip, cenaV: d.cenaV, cenaM: d.cenaM, score: d.score, brOcena: d.brOcena, slikaIndex: d.slikaIndex, promocija: d.promocija}
             localStorage.setItem('currDish', JSON.stringify(curr))
             this.$router.push('pregledjela')
-        }
+        }, 
+        downloadPDF() {
+        const link = document.createElement('a');
+        link.href = '/ZmajevaPalataJelovnik.pdf';
+        link.download = 'ZmajevaPalataJelovnik.pdf';
+        link.click();
+    }
     }
 }
 
@@ -121,6 +135,25 @@
 
 
 <style scoped>
+
+.download-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.download-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: darkred;
+}
   
 .order-button {
     background-color: #f73100; /* Reddish color */

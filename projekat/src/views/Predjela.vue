@@ -32,6 +32,10 @@
   
         {{ error }}
       </section>
+
+      <section class="download-section">
+      <button class="download-button" @click="downloadPDF()">pdf</button>
+    </section>
     </div>
   </template>
   
@@ -128,12 +132,38 @@
             let searchText = this.searchText.toLowerCase();
     
             return serbianName.includes(searchText) || englishName.includes(searchText);
-        },
+        }, 
+        downloadPDF() {
+        const link = document.createElement('a');
+        link.href = '/ZmajevaPalataJelovnik.pdf';
+        link.download = 'ZmajevaPalataJelovnik.pdf';
+        link.click();
+    }
     }
 }
 </script>
 
 <style scoped>
+
+
+  .download-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.download-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: darkred;
+}
   .arrow-icon {
   margin-left: 5px;
   vertical-align: middle;
