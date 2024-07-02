@@ -28,7 +28,9 @@
             </router-link>
             
             <li class="line"> | </li>
+            <router-link to="/mojnalog">
             <li><a href="#">{{ $t('nav.myAccount') }}</a></li>
+            </router-link>
             <li class="line"> | </li>
             <router-link to="/about">
                 <li><a href="#" >{{ $t('nav.aboutUs') }}</a></li>

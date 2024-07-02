@@ -1,100 +1,43 @@
 <template>
   <div class="home">
    
-    <section class="top-dishes">
-        <h2>Top 3 Hasa</h2>
-        <div class="dish" @click='fun(d)'>
+     <section class="top-dishes">
+        <h2>{{ $t('best') }}</h2>
+        <div class="dish" v-for="d of topRatedDishes" :key="d.ime" @click="fun(d)">
             <div class="dish-box">
-                <img src="../assets/has.jpg" alt="Dish 1">
-                <h3>Dish Name 1</h3>
-                <p class="price">1000</p>
-            </div>
-        </div>
-        <div class="dish" @click='fun(d)'>
-            <div class="dish-box">
-                <img src="../assets/has.jpg" alt="Dish 2">
-                <h3>Dish Name 2</h3>
-                <p class="price">1000</p>
-            </div>
-        </div>
-        <div class="dish" @click='fun(d)'>
-            <div class="dish-box">
-                <img src="../assets/has.jpg" alt="Dish 3">
-                <h3>Dish Name 3</h3>
-                <p class="price">1000</p>
+                <img :src="'/images/photo' + d.slikaIndex" alt="Dish Image">
+                <h3>{{ $t(`menu.dishes.${d.ime}`) }}</h3>
+                <p class="price">{{ $t('menu.rating') }}: {{ (d.score / d.brOcena).toFixed(2) }}/5</p>
             </div>
         </div>
     </section>
+        
 
-<!--
 
-    <section class="promotions">
-        <h2>Promocije</h2>
-        <div class="promotion">
-            <div class="promotion-box">
-                <img src="/images/photo3.jpg" alt="Promo 1">
-                <h3>Edamame</h3>
-                <p class="price">Cena:1000din</p>
-                <p class="price">Ocena:1000/5</p>
-                <button class="order-button">Naruči</button>
-            </div>
-        </div>
-        <div class="promotion">
-            <div class="promotion-box">
-                <img src="/images/photo6.jpg" alt="Promo 2">
-                <h3>Lo Mein</h3>
-                <p class="price">Cena:1000din</p>
-                <p class="price">Ocena:1000/5</p>
-                <button class="order-button">Naruči</button>
-            </div>
-        </div>
-        <div class="promotion">
-            <div class="promotion-box">
-                <img src="/images/photo9.jpg" alt="Promo 3">
-                <h3>Misandao</h3>
-                <p class="price">Cena:1000din</p>
-                <p class="price">Ocena:1000/5</p>
-                <button class="order-button">Naruči</button>
-
-            </div>
-        </div>
-        <div class="promotion">
-            <div class="promotion-box">
-                <img src="/images/photo1.jpg" alt="Promo 4">
-                <h3>Prolecne Rolnice</h3>
-                <p class="price">Cena:1000DIN</p>
-                <p class="price">Cena:1000/5</p>
-                <button class="order-button">Naruči</button>
-
-            </div>
-        </div>
-    </section>
--->
     
  
   
   <section class = "promotions">
-     <h2>Promocije </h2>
+     <h2>{{ $t('promo') }} </h2>
         <div class="promotion" v-for="d of filterPromo" :key="d.ime" @click='fun(d)'>
             <div class="promotion-box">
             <img :src="'/images/photo' +d.slikaIndex" alt="Dish Image">
-                <h3>{{d.ime}}</h3>              
-                
-                <p class="price">Ocena:{{d.ocena}}/5</p>
-                
+                <h3>{{ $t(`menu.dishes.${d.ime}`) }}</h3>
+                <p class="price">{{ $t('menu.rating') }}: {{ (d.score / d.brOcena).toFixed(2) }}/5</p>
+                    
 
             </div>
         </div>
   </section>
   
   <section class="chef">
-        <h2>Upoznajte Sefa Kuhinje</h2>
+        <h2>{{ $t('chef.title') }}</h2>
         <div class="chef-container">
             <div class="chef-box">
                 <img src="../assets/sef.jpg" alt="Chef">
             </div>
             <div class="chef-box chef-info">
-                <p>Nas kuvar je sjajan, svi volimo bas ovog kuvara i on mnogo voli nas, radi vec 20 godina za nas. Super kuvar.</p>
+                <p>{{ $t('chef.tekst') }}</p>
             </div>
         </div>
     </section>
@@ -118,18 +61,18 @@
         
         if (localStorage.getItem("allDishes") == null) {
       this.allDishes = [
-        { ime: "springRolls", tip: "p", cenaV: "300", cenaM: "200", ocena: "0", slikaIndex: "1.jpg", promocija: "d" },
-        { ime: "misoSoup", tip: "p", cenaV: "450", cenaM: "350", ocena: "0", slikaIndex: "2.jpg", promocija: "n" },
-        { ime: "edamame", tip: "p", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "3.jpg", promocija: "n" },
-        { ime: "kungPaoChicken", tip: "g", cenaV: "1500", cenaM: "1000", ocena: "0", slikaIndex: "4.jpg", promocija: "d" },
-        { ime: "sweetSpicyBeef", tip: "g", cenaV: "1000", cenaM: "900", ocena: "0", slikaIndex: "5.jpg", promocija: "n" },
-        { ime: "loMein", tip: "g", cenaV: "800", cenaM: "400", ocena: "0", slikaIndex: "6.jpg", promocija: "n" },
-        { ime: "friedIceCream", tip: "d", cenaV: "289", cenaM: "189", ocena: "0", slikaIndex: "7.jpg", promocija: "d" },
-        { ime: "friedBananaChocolate", tip: "d", cenaV: "300", cenaM: "200", ocena: "0", slikaIndex: "8.jpg", promocija: "d" },
-        { ime: "misandao", tip: "d", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "9.jpg", promocija: "n" },
-        { ime: "greenTea", tip: "pice", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "10.jpg", promocija: "n" },
-        { ime: "water", tip: "pice", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "11.jpg", promocija: "n" },
-        { ime: "sake", tip: "pice", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "12.jpg", promocija: "n" },
+         { ime: "springRolls", tip: "p", cenaV: "300", cenaM: "200", score: 0, slikaIndex: "1.jpg", promocija: "d", brOcena: 0 },
+        { ime: "misoSoup", tip: "p", cenaV: "450", cenaM: "350", score: 0, slikaIndex: "2.jpg", promocija: "n", brOcena: 0 },
+        { ime: "edamame", tip: "p", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "3.jpg", promocija: "n" , brOcena: 0},
+        { ime: "kungPaoChicken", tip: "g", cenaV: "1500", cenaM: "1000", score: 0, slikaIndex: "4.jpg", promocija: "d" , brOcena: 0},
+        { ime: "sweetSpicyBeef", tip: "g", cenaV: "1000", cenaM: "900", score: 0, slikaIndex: "5.jpg", promocija: "n" , brOcena: 0},
+        { ime: "loMein", tip: "g", cenaV: "800", cenaM: "400", score: 0, slikaIndex: "6.jpg", promocija: "n" , brOcena: 0},
+        { ime: "friedIceCream", tip: "d", cenaV: "289", cenaM: "189", score: 0, slikaIndex: "7.jpg", promocija: "d" , brOcena: 0},
+        { ime: "friedBananaChocolate", tip: "d", cenaV: "300", cenaM: "200", score: 0, slikaIndex: "8.jpg", promocija: "d" , brOcena: 0},
+        { ime: "misandao", tip: "d", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "9.jpg", promocija: "n", brOcena: 0 },
+        { ime: "greenTea", tip: "pice", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "10.jpg", promocija: "n" , brOcena: 0},
+        { ime: "water", tip: "pice", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "11.jpg", promocija: "n" , brOcena: 0},
+        { ime: "sake", tip: "pice", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "12.jpg", promocija: "n" , brOcena: 0},
       ];
       localStorage.setItem("allDishes", JSON.stringify(this.allDishes));
     } else {
@@ -151,11 +94,21 @@
     computed: {
       filterPromo() {
         return this.allDishes.filter(dish => dish.promocija == "d");
-      }
+      },
+       topRatedDishes() {
+            // Filter out dishes with non-zero brOcena to avoid division by zero
+            const ratedDishes = this.allDishes.filter(dish => dish.brOcena > 0);
+
+            // Sort dishes by rating in descending order
+            ratedDishes.sort((a, b) => (b.score / b.brOcena) - (a.score / a.brOcena));
+            console.log(ratedDishes)
+            // Return top 3 dishes
+            return ratedDishes.slice(0, 3);
+        }
     }  ,
     methods:{
         fun(d){           
-            let curr = {ime: d.ime, tip: d.tip, cenaV: d.cenaV, cenaM: d.cenaM, ocena: d.ocena, slikaIndex: d.slikaIndex, promocija: d.promocija}
+            let curr = {ime: d.ime, tip: d.tip, cenaV: d.cenaV, cenaM: d.cenaM, score: d.score, brOcena: d.brOcena, slikaIndex: d.slikaIndex, promocija: d.promocija}
             localStorage.setItem('currDish', JSON.stringify(curr))
             this.$router.push('pregledjela')
         }

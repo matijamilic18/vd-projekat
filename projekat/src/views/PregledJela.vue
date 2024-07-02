@@ -3,8 +3,8 @@
         <h2 class="section-title">{{ $t(`menu.dishes.${this.currDish.ime}`) }}</h2>
         <div class="dish">
             <div class="dish-box">
-                <img :src="getImageUrl(this.currDish.slikaIndex)" alt="Dish Image">
-                <p class="rating">{{ $t('dish.rating') }} {{ this.currDish.ocena }}/5</p>
+                <img :src="'/images/photo' + this.currDish.slikaIndex" alt="Dish Image">
+                <p class="rating">{{ $t('dish.rating') }} {{ (this.currDish.score / this.currDish.brOcena).toFixed(2) }}/5</p>
                 <div class="price">
                     <input type="radio" id="cenaV" value="velika" v-model="IzabranaPorcija">
                     <label for="cenaV">{{ $t('dish.largePortionPrice') }}{{this.currDish.cenaV}}din</label>
@@ -25,7 +25,7 @@
             <select v-model="userRating">
                 <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
             </select>
-            <button class="rate-button" @click="addRating">{{ $t('dish.addRating') }}</button>
+            <button class="rate-button" @click="addRating()">{{ $t('dish.addRating') }}</button>
         </div>
     </div>
 </template>
@@ -36,6 +36,8 @@ export default {
     created() {
         this.currDish = JSON.parse(localStorage.getItem('currDish'));
         this.korpa = JSON.parse(localStorage.getItem('korpa'));
+        this.allDishes= JSON.parse(localStorage.getItem('allDishes'));
+
     },
 
     data() {
@@ -45,15 +47,25 @@ export default {
             kolicina: 1, // Default quantity
             userRating: 1 ,// Default rating
             korpa: [],
+            allDishes: [],
             price: 0,
         };
     },
     
     methods: {
         addRating() {
-            alert(`You rated the dish: ${this.userRating}`);
-            // Add your rating logic here, like sending it to a server or updating local storage
-        },
+            let index = this.allDishes.findIndex(dish => dish.ime == this.currDish.ime)
+            
+         
+            this.allDishes[index].brOcena +=1
+            this.allDishes[index].score += this.userRating
+
+            localStorage.setItem('allDishes', JSON.stringify(this.allDishes))
+
+            this.currDish = this.allDishes[index]
+            localStorage.setItem('currDish', JSON.stringify(this.allDishes[index]))
+            
+        }, 
         add()
         {   
             if(this.IzabranaPorcija == 'mala')
@@ -63,7 +75,7 @@ export default {
             else{
                 this.price = parseInt(this.currDish.cenaV) * this.kolicina
             }
-            let item = {imeJela: this.currDish.ime, porcija: this.IzabranaPorcija,  kolicina: this.kolicina, cena: this.price}
+            let item = {imeJela: this.currDish.ime, porcija: this.IzabranaPorcija,  kolicina: this.kolicina, cena: this.price, slikaIndex: this.currDish.slikaIndex}
             this.korpa.push(item)
             localStorage.setItem('korpa', JSON.stringify(this.korpa))
             this.$router.push('/mojnalog')

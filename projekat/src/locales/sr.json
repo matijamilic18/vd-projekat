@@ -1,5 +1,9 @@
 {
   "name": "Zmajeva Palata",
+  "best": "Najbolja jela",
+  "promo": "Promocije",
+  "empty": "Vasa korpa je prazna.",
+  "naruceno": "Naruceno",
   "nav": {
     "home": "Početna",
     "menu": "Meni",
@@ -64,6 +68,19 @@
       "addToCart": "Dodaj u Korpu",
       "rateDish": "Oceni Jelo",
       "addRating": "Dodaj Ocenu"
+    },
+    "chef":{
+      "title": "Upoznajte Sefa Kuhinje",
+      "tekst": "Nas kuvar je sjajan, svi volimo bas ovog kuvara i on mnogo voli nas, radi vec 20 godina za nas. Super kuvar."
+      },
+    "item":{
+      "porcija": "Porcija: ",
+      "mala": "Mala",
+      "velika": "Velika",
+      "kolicina": "Kolicina: ",
+      "cena": "Cena: ",
+      "ukupnaCena": "Ukupna Cena: ",
+      "order": "Poruci"
     }
  
 }

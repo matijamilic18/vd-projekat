@@ -24,8 +24,9 @@
         <div class="dish" v-for="d of sortedDishes" :key="d.ime" @click="fun(d)">
           <div class="dish-box">
             <img :src="'/images/photo' + d.slikaIndex" alt="Dish Image">
-            <h3>{{ $t(`menu.dishes.${d.ime}`) }}</h3>
-            <p class="price">{{ $t('menu.rating') }}: {{ d.ocena }}/5</p>
+            <h3>{{ $t(`menu.dishes.${d.ime}`) }}</h3>              
+            <p class="price">{{ $t('menu.rating') }}: {{ (d.score / d.brOcena).toFixed(2) }}/5</p>
+            
           </div>
         </div>
   
@@ -37,32 +38,38 @@
   <script>
   export default {
     name: "Predjela",
-    created() {
-      if (localStorage.getItem("allDishes") == null) {
+    created(){
+        if (localStorage.getItem("allDishes") == null) {
         this.allDishes = [
-          { ime: "springRolls", tip: "p", cenaV: "300", cenaM: "200", ocena: "0", slikaIndex: "1.jpg", promocija: "d" },
-          { ime: "misoSoup", tip: "p", cenaV: "450", cenaM: "350", ocena: "0", slikaIndex: "2.jpg", promocija: "n" },
-          { ime: "edamame", tip: "p", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "3.jpg", promocija: "n" },
-          { ime: "kungPaoChicken", tip: "g", cenaV: "1500", cenaM: "1000", ocena: "0", slikaIndex: "4.jpg", promocija: "d" },
-          { ime: "sweetSpicyBeef", tip: "g", cenaV: "1000", cenaM: "900", ocena: "0", slikaIndex: "5.jpg", promocija: "n" },
-          { ime: "loMein", tip: "g", cenaV: "800", cenaM: "400", ocena: "0", slikaIndex: "6.jpg", promocija: "n" },
-          { ime: "friedIceCream", tip: "d", cenaV: "289", cenaM: "189", ocena: "0", slikaIndex: "7.jpg", promocija: "d" },
-          { ime: "friedBananaChocolate", tip: "d", cenaV: "300", cenaM: "200", ocena: "0", slikaIndex: "8.jpg", promocija: "d" },
-          { ime: "misandao", tip: "d", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "9.jpg", promocija: "n" },
-          { ime: "greenTea", tip: "pice", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "10.jpg", promocija: "n" },
-          { ime: "water", tip: "pice", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "11.jpg", promocija: "n" },
-          { ime: "sake", tip: "pice", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "12.jpg", promocija: "n" },
+            { ime: "springRolls", tip: "p", cenaV: "300", cenaM: "200", score: 0, slikaIndex: "1.jpg", promocija: "d", brOcena: 0 },
+            { ime: "misoSoup", tip: "p", cenaV: "450", cenaM: "350", score: 0, slikaIndex: "2.jpg", promocija: "n", brOcena: 0 },
+            { ime: "edamame", tip: "p", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "3.jpg", promocija: "n" , brOcena: 0},
+            { ime: "kungPaoChicken", tip: "g", cenaV: "1500", cenaM: "1000", score: 0, slikaIndex: "4.jpg", promocija: "d" , brOcena: 0},
+            { ime: "sweetSpicyBeef", tip: "g", cenaV: "1000", cenaM: "900", score: 0, slikaIndex: "5.jpg", promocija: "n" , brOcena: 0},
+            { ime: "loMein", tip: "g", cenaV: "800", cenaM: "400", score: 0, slikaIndex: "6.jpg", promocija: "n" , brOcena: 0},
+            { ime: "friedIceCream", tip: "d", cenaV: "289", cenaM: "189", score: 0, slikaIndex: "7.jpg", promocija: "d" , brOcena: 0},
+            { ime: "friedBananaChocolate", tip: "d", cenaV: "300", cenaM: "200", score: 0, slikaIndex: "8.jpg", promocija: "d" , brOcena: 0},
+            { ime: "misandao", tip: "d", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "9.jpg", promocija: "n", brOcena: 0 },
+            { ime: "greenTea", tip: "pice", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "10.jpg", promocija: "n" , brOcena: 0},
+            { ime: "water", tip: "pice", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "11.jpg", promocija: "n" , brOcena: 0},
+            { ime: "sake", tip: "pice", cenaV: "100", cenaM: "50", score: 0, slikaIndex: "12.jpg", promocija: "n" , brOcena: 0},
         ];
-        localStorage.setItem("allDishes", JSON.stringify(this.allDishes));
-      } else {
-        this.allDishes = JSON.parse(localStorage.getItem("allDishes"));
-      }
+      localStorage.setItem("allDishes", JSON.stringify(this.allDishes));
+    } else {
+      this.allDishes = JSON.parse(localStorage.getItem("allDishes"));
+    }
     },
     data() {
       return {
         searchText: "",
         sort_by: "",
         sortDesc: false,
+        ime: '',
+        cena: '',
+        tip: '', /* g=glavno jelo, d=dezert, p=predjelo, pice=pice*/
+        ocena: '',
+        slikaIndex: '',
+        promocija: '',
         allDishes: [],
       };
     },
@@ -98,41 +105,33 @@
         return sorted;
       },
     },
-    methods: {
-      fun(d) {
-        let curr = {
-          ime: d.ime,
-          tip: d.tip,
-          cenaV: d.cenaV,
-          cenaM: d.cenaM,
-          ocena: d.ocena,
-          slikaIndex: d.slikaIndex,
-          promocija: d.promocija,
-        };
-        localStorage.setItem("currDish", JSON.stringify(curr));
-        this.$router.push("pregledjela");
-      },
-      sortBy(criteria) {
+    methods:{
+        fun(d){           
+            let curr = {ime: d.ime, tip: d.tip, cenaV: d.cenaV, cenaM: d.cenaM, score: d.score, brOcena: d.brOcena, slikaIndex: d.slikaIndex, promocija: d.promocija}
+            localStorage.setItem('currDish', JSON.stringify(curr))
+            this.$router.push('pregledjela')
+        },
+        sortBy(criteria) {
         if (this.sort_by === criteria) {
           this.sortDesc = !this.sortDesc;
         } else {
           this.sort_by = criteria;
           this.sortDesc = false;
         }
-      },
-      searchDishes() {
-        // Implement search functionality if needed
-      },
-      dishMatchesSearch(dish) {
-        let serbianName = this.$t(`menu.dishes.${dish.ime}`).toLowerCase();
-        let englishName = dish.ime.toLowerCase();
-        let searchText = this.searchText.toLowerCase();
-  
-        return serbianName.includes(searchText) || englishName.includes(searchText);
-      },
-    },
-  };
-  </script>
+        },
+        searchDishes() {
+            // Implement search functionality if needed
+        },
+        dishMatchesSearch(dish) {
+            let serbianName = this.$t(`menu.dishes.${dish.ime}`).toLowerCase();
+            let englishName = dish.ime.toLowerCase();
+            let searchText = this.searchText.toLowerCase();
+    
+            return serbianName.includes(searchText) || englishName.includes(searchText);
+        },
+    }
+}
+</script>
 
 <style scoped>
   .arrow-icon {

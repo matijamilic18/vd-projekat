@@ -1,5 +1,9 @@
 {
     "name": "Dragon's Palace",
+    "best": "Best Dishes",
+    "promo": "Promotions",
+    "empty": "Your cart is empty.",
+    "naruceno": "Ordered",
     "nav": {
       "home": "Home",
       "menu": "Menu",
@@ -64,6 +68,19 @@
     "addToCart": "Add to Cart",
     "rateDish": "Rate Dish",
     "addRating": "Add Rating"
+    },
+    "chef":{
+        "title": "Meet the Chef",
+        "tekst": "Our chef is excellent, we all love this chef and he loves us a lot, he has been working for us for 20 years. Great chef."
+    },
+    "item":{
+      "porcija": "Size: ",
+      "mala": "Small",
+      "velika": "Big",
+      "kolicina": "Amount: ",
+      "cena": "Price: ",
+      "ukupnaCena": "Total price: ",
+      "order": "Order"
     }
   }
   
