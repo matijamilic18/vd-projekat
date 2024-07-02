@@ -1,0 +1,54 @@
+{
+    "name": "Dragon's Palace",
+    "nav": {
+      "home": "Home",
+      "menu": "Menu",
+      "appetizers": "Appetizers",
+      "mainCourses": "Main Courses",
+      "desserts": "Desserts",
+      "drinks": "Drinks",
+      "gallery": "Gallery",
+      "myAccount": "My Account",
+      "aboutUs": "About Us"
+    },
+    "footer": {
+      "copyright": "Copyright 2024, Matija Milić/Lazar Krpović, Department of Software Engineering, School of Electrical Engineering, University of Belgrade"
+    },
+    "about": {
+      "title": "About Us",
+      "paragraph1": "\"Dragon's Palace\" is the result of a ten-year journey of two friends through China. Lazar and Matija, culinary adventure enthusiasts, spent from 2005 to 2015 learning from Chinese master chefs.",
+      "paragraph2": "Upon returning to Belgrade, they decided to share their experiences through authentic Chinese cuisine. Our restaurant combines traditional recipes from various Chinese provinces with fresh, local ingredients.",
+      "paragraph3": "From Beijing to Sichuan, every dish in \"Dragon's Palace\" has its own story. Our chefs, trained directly by Lazar and Matija, carefully prepare each meal using authentic techniques and spices.",
+      "paragraph4": "We invite you to experience the richness of Chinese cuisine in the heart of Jakovo. Whether you're a fan of spicy Sichuan dishes or prefer the subtle flavors of Cantonese cuisine, you'll find something to suit your taste with us.",
+      "contactInfo": "Contact Information",
+      "address": "Address: Oslobodjenja 38, 11000 Belgrade",
+      "phone": "Phone: 011 123-4567",
+      "email": "Email: info@zmajeva-palata.rs",
+      "workingHours": "Working Hours:",
+      "weekdays": "Monday - Friday: 11:00 - 23:00",
+      "weekends": "Saturday - Sunday: 12:00 - 00:00"
+    },
+    "menu": {
+      "appetizers": "Appetizers",
+      "mainCourses": "Main Courses",
+      "desserts": "Desserts",
+      "drinks": "Drinks",
+      "rating": "Rating",
+      "viewDish": "View Dish",
+      "dishes": {
+        "springRolls": "Spring Rolls",
+        "misoSoup": "Miso Soup",
+        "edamame": "Edamame",
+        "kungPaoChicken": "Kung Pao Chicken",
+        "sweetSpicyBeef": "Sweet and Spicy Beef",
+        "loMein": "Lo Mein",
+        "friedIceCream": "Fried Ice Cream",
+        "friedBananaChocolate": "Fried Banana with Chocolate",
+        "misandao": "Misandao",
+        "greenTea": "Green Tea",
+        "water": "Water",
+        "sake": "Sake"
+      }
+    }
+  }
+  

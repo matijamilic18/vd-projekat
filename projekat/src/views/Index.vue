@@ -108,31 +108,24 @@
     export default{
     name: 'Index',
     created(){
-    if(localStorage.getItem("allDishes")==null){
-        this.allDishes = [
-            {ime: "Prolecne Rolnice", tip: "p", cenaV: "300", cenaM:"200", ocena: "0", slikaIndex: "1.jpg", promocija: "d"},
-            {ime: "Miso supa", tip: "p", cenaV: "450", cenaM:"350", ocena: "0", slikaIndex: "2.jpg", promocija: "n"},
-            {ime: "Edamame", tip: "p", cenaV: "100",cenaM:"50", ocena: "0", slikaIndex: "3.jpg", promocija: "n"},
-
-
-            {ime: "Kung Pao Piletina", tip: "g", cenaV: "1500", cenaM:"1000",ocena: "0", slikaIndex: "4.jpg", promocija: "d"},
-            {ime: "Slatko Ljuta Teletina", tip: "g", cenaV: "1000",cenaM:"900", ocena: "0", slikaIndex: "5.jpg", promocija: "n"},
-            {ime: "Lo Mein", tip: "g", cenaV: "800",cenaM:"400", ocena: "0", slikaIndex: "6.jpg", promocija: "n"},
-
-            
-
-            {ime: "Pohovani Sladoled", tip: "d", cenaV: "289",cenaM:"189", ocena: "0", slikaIndex: "7.jpg", promocija: "d"},
-            {ime: "Pohovana Banana sa Cokoladom", tip: "d", cenaV: "300",cenaM:"200", ocena: "0", slikaIndex: "8.jpg", promocija: "n"},
-            {ime: "Misandao", tip: "d", cenaV: "199", cenaM:"100",ocena: "0", slikaIndex: "9.jpg", promocija: "n"},
-
-            {ime: "Zeleni Caj", tip: "pice", cenaV: "2000", cenaM:"1000", ocena: "0", slikaIndex: "10.jpg", promocija: "d"},
-            {ime: "Voda", tip: "pice", cenaV: "1", cenaM:"1",ocena: "0", slikaIndex: "11.jpg", promocija: "n"},
-            {ime: "Sake", tip: "pice", cenaV: "420", cenaM:"320",ocena: "0", slikaIndex: "12.jpg", promocija: "n"},]
-
-            localStorage.setItem("allDishes", JSON.stringify(this.allDishes))
-    }
-    else{
-        this.allDishes=JSON.parse(localStorage.getItem("allDishes"))
+        if (localStorage.getItem("allDishes") == null) {
+      this.allDishes = [
+        { ime: "springRolls", tip: "p", cenaV: "300", cenaM: "200", ocena: "0", slikaIndex: "1.jpg", promocija: "d" },
+        { ime: "misoSoup", tip: "p", cenaV: "450", cenaM: "350", ocena: "0", slikaIndex: "2.jpg", promocija: "n" },
+        { ime: "edamame", tip: "p", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "3.jpg", promocija: "n" },
+        { ime: "kungPaoChicken", tip: "g", cenaV: "1500", cenaM: "1000", ocena: "0", slikaIndex: "4.jpg", promocija: "d" },
+        { ime: "sweetSpicyBeef", tip: "g", cenaV: "1000", cenaM: "900", ocena: "0", slikaIndex: "5.jpg", promocija: "n" },
+        { ime: "loMein", tip: "g", cenaV: "800", cenaM: "400", ocena: "0", slikaIndex: "6.jpg", promocija: "n" },
+        { ime: "friedIceCream", tip: "d", cenaV: "289", cenaM: "189", ocena: "0", slikaIndex: "7.jpg", promocija: "d" },
+        { ime: "friedBananaChocolate", tip: "d", cenaV: "300", cenaM: "200", ocena: "0", slikaIndex: "8.jpg", promocija: "d" },
+        { ime: "misandao", tip: "d", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "9.jpg", promocija: "n" },
+        { ime: "greenTea", tip: "pice", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "10.jpg", promocija: "n" },
+        { ime: "water", tip: "pice", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "11.jpg", promocija: "n" },
+        { ime: "sake", tip: "pice", cenaV: "100", cenaM: "50", ocena: "0", slikaIndex: "12.jpg", promocija: "n" },
+      ];
+      localStorage.setItem("allDishes", JSON.stringify(this.allDishes));
+    } else {
+      this.allDishes = JSON.parse(localStorage.getItem("allDishes"));
     }
     },
     data(){

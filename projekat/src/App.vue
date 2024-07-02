@@ -4,36 +4,46 @@
   <nav class="navbar">
       <div id = "nav">
           <router-link to="/"><img src="./assets/jzma.png" class = "logo"></router-link>
-          <router-link to="/"><h1 class="naziv">Zmajeva Palata</h1></router-link>
+          <router-link to="/"><h1 class="naziv">{{ $t('name') }}</h1></router-link>
       </div>
   </nav>
   <nav class="breadcrumb-nav">
         <ul>
             <li class="ne"> | </li>
-            <li><a href="/">Početna</a></li>
+            <li><a href="/">{{ $t('nav.home') }}</a></li>
             <li class="line"> | </li>
             <li class="dropdown">
-                <router-link to="/meni"><a href="#">Meni</a></router-link>
+                <router-link to="/meni"><a href="#">{{ $t('nav.menu') }}</a></router-link>
                 <ul class="dropdown-content">
-                    <router-link to="/predjela"><li><a href="#">Predjela</a></li></router-link>
-                    <router-link to="/glavnajela"><li><a href="#">Glavna Jela</a></li></router-link>
-                    <router-link to="/dezerti"><li><a href="#">Dezerti</a></li></router-link>
-                    <router-link to="/pica"><li><a href="#">Pića</a></li></router-link>
+                    <router-link to="/predjela"><li><a href="#">{{ $t('nav.appetizers') }}</a></li></router-link>
+                    <router-link to="/glavnajela"><li><a href="#">{{ $t('nav.mainCourses') }}</a></li></router-link>
+                    <router-link to="/dezerti"><li><a href="#">{{ $t('nav.desserts') }}</a></li></router-link>
+                    <router-link to="/pica"><li><a href="#">{{ $t('nav.drinks') }}</a></li></router-link>
                     
                 </ul>
             </li>
             <li class="line"> | </li>
             <router-link to="/galerija">
-                <li><a href="#">Galerija</a></li>
+                <li><a href="#">{{ $t('nav.gallery') }}</a></li>
             </router-link>
             
             <li class="line"> | </li>
-            <li><a href="#">Moj Nalog</a></li>
+            <li><a href="#">{{ $t('nav.myAccount') }}</a></li>
             <li class="line"> | </li>
             <router-link to="/about">
-                <li><a href="#" >O Nama</a></li>
+                <li><a href="#" >{{ $t('nav.aboutUs') }}</a></li>
             </router-link>
             
+            <li class="line"> | </li>
+            <li class="language-switcher">
+                <button @click="toggleLanguageMenu" class="language-button">
+                {{ currentLanguage }}
+                </button>
+                <ul v-if="showLanguageMenu" class="language-menu">
+                    <li @click="changeLanguage('en')">English</li>
+                    <li @click="changeLanguage('sr')">Srpski</li>
+                </ul>
+            </li>
             <li class="line"> | </li>
         </ul>
   </nav>
@@ -44,7 +54,7 @@
   
    <footer> 
       <div class="footer-bottom">
-      <p>  „Copyright 2024, Матија Милић/Лазар Крповић, Одсек за софтверско инжењерство Електротехничког факултета Универзитета у Београду“ </p>
+      <p>  {{ $t('footer.copyright') }} </p>
       </div>
   </footer>
 
@@ -63,6 +73,39 @@ export default {
   name: 'App',
   components: {
     Breadcrumbs
+  },
+  watch: {
+    '$i18n.locale'(newLocale) {
+    document.querySelector('html').setAttribute('lang', newLocale)
+    localStorage.setItem('userLanguage', newLocale)
+  }
+  },
+  data() {
+    return {
+      showLanguageMenu: false
+    }
+  },
+  computed: {
+    currentLanguage() {
+      return this.$i18n.locale === 'en' ? 'English' : 'Srpski'
+    }
+  },
+  methods: {
+    toggleLanguageMenu() {
+      this.showLanguageMenu = !this.showLanguageMenu
+    },
+    changeLanguage(lang) {
+    this.$i18n.locale = lang
+    console.log('Current locale:', this.$i18n.locale)
+    this.showLanguageMenu = false
+    localStorage.setItem('userLanguage', lang)
+  }
+  },
+  created() {
+    const savedLanguage = localStorage.getItem('userLanguage')
+    if (savedLanguage) {
+      this.$i18n.locale = savedLanguage
+    }
   }
 }
 </script>
@@ -270,5 +313,52 @@ body {
     display: block;
 }
 
+.language-switcher {
+  position: relative;
+  display: flex;
+  align-items:baseline;
+}
 
+.language-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 1.2em;
+  background: linear-gradient(90deg, #f73100, #9b2424, #f73100);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  transition: text-shadow 0.3s ease;
+}
+
+.language-button:hover {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.language-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  z-index: 1000;
+  min-width: 120px;
+}
+
+.language-menu li {
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.language-menu li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 </style>

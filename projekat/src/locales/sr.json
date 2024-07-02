@@ -1,0 +1,53 @@
+{
+  "name": "Zmajeva Palata",
+  "nav": {
+    "home": "Početna",
+    "menu": "Meni",
+    "appetizers": "Predjela",
+    "mainCourses": "Glavna Jela",
+    "desserts": "Dezerti",
+    "drinks": "Pića",
+    "gallery": "Galerija",
+    "myAccount": "Moj Nalog",
+    "aboutUs": "O Nama"
+  },
+  "footer": {
+    "copyright": "Copyright 2024, Матија Милић/Лазар Крповић, Одсек за софтверско инжењерство Електротехничког факултета Универзитета у Београду"
+  },
+  "about": {
+    "title": "O Nama",
+    "paragraph1": "\"Zmajeva Palata\" je rezultat desetogodišnjeg putovanja dvojice prijatelja kroz Kinu. Lazar i Matija, zaljubljenici u kulinarske avanture, proveli su od 2005. do 2015. godine učeći od kineskih majstora kuvara.",
+    "paragraph2": "Po povratku u Beograd, odlučili su da podele svoja iskustva kroz autentičnu kinesku kuhinju. Naš restoran kombinuje tradicionalne recepte iz raznih kineskih provincija sa svežim, lokalnim sastojcima.",
+    "paragraph3": "Od pekinga do Sičuana, svako jelo u \"Zmajevoj Palati\" ima svoju priču. Naši kuvari, obučeni direktno od Lazara i Matije, pažljivo pripremaju svaki obrok koristeći autentične tehnike i začine.",
+    "paragraph4": "Pozivamo vas da doživite bogatstvo kineske kuhinje u srcu Jakova. Bilo da ste ljubitelj pikantnih sičuanskih jela ili preferirate suptilne ukuse kantonske kuhinje, kod nas ćete pronaći nešto za svoj ukus.",
+    "contactInfo": "Kontakt Informacije",
+    "address": "Adresa: Oslobodjenja 38, 11000 Beograd",
+    "phone": "Telefon: 011 123-4567",
+    "email": "Email: info@zmajeva-palata.rs",
+    "workingHours": "Radno vreme:",
+    "weekdays": "Ponedeljak - Petak: 11:00 - 23:00",
+    "weekends": "Subota - Nedelja: 12:00 - 00:00"
+  },
+  "menu": {
+    "appetizers": "Predjela",
+    "mainCourses": "Glavna Jela",
+    "desserts": "Dezerti",
+    "drinks": "Pića",
+    "rating": "Ocena",
+    "viewDish": "Pogledaj Jelo",
+    "dishes": {
+      "springRolls": "Prolecne Rolnice",
+      "misoSoup": "Miso supa",
+      "edamame": "Edamame",
+      "kungPaoChicken": "Kung Pao Piletina",
+      "sweetSpicyBeef": "Slatko Ljuta Teletina",
+      "loMein": "Lo Mein",
+      "friedIceCream": "Pohovani Sladoled",
+      "friedBananaChocolate": "Pohovana Banana sa Cokoladom",
+      "misandao": "Misandao",
+      "greenTea": "Zeleni Caj",
+      "water": "Voda",
+      "sake": "Sake"
+    }
+  }
+}

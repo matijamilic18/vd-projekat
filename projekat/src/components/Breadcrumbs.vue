@@ -1,7 +1,7 @@
 <template>
     <nav class="breadcrumbs">
       <ul>
-        <li><router-link to="/">Početna</router-link></li>
+        <li><router-link to="/">{{ $t('nav.home') }}</router-link></li>
         <li v-for="crumb in breadcrumbs" :key="crumb.path">
           <span class="separator"> > </span>
           <router-link :to="crumb.path">{{ crumb.name }}</router-link>
@@ -14,31 +14,33 @@
   
   <script>
   export default {
-    name: 'Breadcrumbs',
-    computed: {
-      breadcrumbs() {
-        const breadcrumbs = [];
-        const pathArray = this.$route.path.split('/').filter(Boolean);
-        let path = '';
-  
-        pathArray.forEach((segment) => {
-          path += `/${segment}`;
+  name: 'Breadcrumbs',
+  computed: {
+    breadcrumbs() {
+      const breadcrumbs = [];
+      let path = '';
+      
+      this.$route.matched.forEach((route, index) => {
+        path += index === 0 ? '/' : `/${this.$route.params[route.path.split('/').pop().slice(1)] || ''}`;
+        
+        if (route.name) {
           breadcrumbs.push({
-            name: this.formatName(segment),
+            name: this.formatName(route.name),
             path: path
           });
-        });
-  
-        return breadcrumbs;
-      }
-    },
-    methods: {
-      formatName(name) {
-        // Capitalize first letter and replace hyphens with spaces
-        return name.charAt(0).toUpperCase() + name.slice(1).replace(/-/g, ' ');
-      }
+        }
+      });
+      
+      return breadcrumbs;
+    }
+  },
+  methods: {
+    formatName(name) {
+      // Your existing formatName method or a new one to format component names
+      return name.charAt(0).toUpperCase() + name.slice(1);
     }
   }
+};
   </script>
   
   <style scoped>

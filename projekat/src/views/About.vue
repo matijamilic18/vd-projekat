@@ -2,39 +2,26 @@
   <div class="about-page-wrapper">
     <div class="about-page">
       <div class="content">
-        <h1>O Nama</h1>
-        <p>
-          "Zmajeva Palata" je rezultat desetogodišnjeg putovanja dvojice prijatelja kroz Kinu. Lazar i Matija, 
-          zaljubljenici u kulinarske avanture, proveli su od 2005. do 2015. godine učeći od kineskih majstora kuvara.
-        </p>
-        <p>
-          Po povratku u Beograd, odlučili su da podele svoja iskustva kroz autentičnu kinesku kuhinju. Naš restoran 
-          kombinuje tradicionalne recepte iz raznih kineskih provincija sa svežim, lokalnim sastojcima.
-        </p>
-        <p>
-          Od pekinga do Sičuana, svako jelo u "Zmajevoj Palati" ima svoju priču. Naši kuvari, obučeni direktno od 
-          Lazara i Matije, pažljivo pripremaju svaki obrok koristeći autentične tehnike i začine.
-        </p>
-        <p>
-          Pozivamo vas da doživite bogatstvo kineske kuhinje u srcu Jakova. Bilo da ste ljubitelj pikantnih 
-          sičuanskih jela ili preferirate suptilne ukuse kantonske kuhinje, kod nas ćete pronaći nešto za svoj ukus.
-        </p>
+        <h1>{{ $t('about.title') }}</h1>
+        <p>{{ $t('about.paragraph1') }}</p>
+        <p>{{ $t('about.paragraph2') }}</p>
+        <p>{{ $t('about.paragraph3') }}</p>
+        <p>{{ $t('about.paragraph4') }}</p>
         
-        <h2>Kontakt Informacije</h2>
+        <h2>{{ $t('about.contactInfo') }}</h2>
         <ul>
-          <li>Adresa: Oslobodjenja  38, 11000 Beograd</li>
-          <li>Telefon: 011 123-4567</li>
-          <li>Email: info@zmajeva-palata.rs</li>
-          <li>Radno vreme: 
+          <li>{{ $t('about.address') }}</li>
+          <li>{{ $t('about.phone') }}</li>
+          <li>{{ $t('about.email') }}</li>
+          <li>{{ $t('about.workingHours') }}
             <ul>
-              <li>Ponedeljak - Petak: 11:00 - 23:00</li>
-              <li>Subota - Nedelja: 12:00 - 00:00</li>
+              <li>{{ $t('about.weekdays') }}</li>
+              <li>{{ $t('about.weekends') }}</li>
             </ul>
           </li>
         </ul>
       </div>
       <div class="map">
-        
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.6121498577218!2d20.25528539050972!3d44.74792900636266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a6bc1a9871317%3A0x1bfe73e5d9009ece!2sOslobo%C4%91enja%2038%2C%20Jakovo!5e0!3m2!1sen!2srs!4v1719759697282!5m2!1sen!2srs" 
         width="600" 
         height="450" 
@@ -46,6 +33,15 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'About',
+  created() {
+    document.title = this.$t('about.title')
+  }
+}
+</script>
 
 <style scoped>
 .about-page-wrapper {
