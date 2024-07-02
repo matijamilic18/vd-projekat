@@ -15,6 +15,17 @@
       "myAccount": "My Account",
       "aboutUs": "About Us"
     },
+    "crumbs":{
+        "Index" : "Index",
+        "Galerija" : "Gallery",
+        "Meni" : "Menu",
+        "Predjela" : "Appetizers",
+        "Glavna Jela" : "Main Courses",
+        "Dezerti" : "Desserts",
+        "Pica" : "Drinks",
+        "Moj Nalog": "My Account",
+        "O nama": "About Us"
+    },
     "footer": {
       "copyright": "Copyright 2024, Matija Milić/Lazar Krpović, Department of Software Engineering, School of Electrical Engineering, University of Belgrade"
     },

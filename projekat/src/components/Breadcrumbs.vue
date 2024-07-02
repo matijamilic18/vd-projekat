@@ -4,7 +4,7 @@
         <li><router-link to="/">{{ $t('nav.home') }}</router-link></li>
         <li v-for="crumb in breadcrumbs" :key="crumb.path">
           <span class="separator"> > </span>
-          <router-link :to="crumb.path">{{ crumb.name }}</router-link>
+          <router-link :to="crumb.path">{{ $t(`crumbs.${crumb.name}`) }}</router-link>
         </li>
       </ul>
     </nav>

@@ -15,6 +15,17 @@
     "myAccount": "Moj Nalog",
     "aboutUs": "O Nama"
   },
+  "crumbs":{
+    "Index" : "Pocetna",
+    "Galerija" : "Galerija",
+    "Meni" : "Meni",
+    "Predjela" : "Predjela",
+    "Glavna Jela" : "Glavna Jela",
+    "Dezerti" : "Dezerti",
+    "Pica" : "Pića",
+    "Moj Nalog": "Moj Nalog",
+    "O nama": "O nama"
+  },
   "footer": {
     "copyright": "Copyright 2024, Матија Милић/Лазар Крповић, Одсек за софтверско инжењерство Електротехничког факултета Универзитета у Београду"
   },

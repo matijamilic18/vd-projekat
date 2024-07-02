@@ -44,7 +44,7 @@ const routes = [
   ,
   {
     path: '/glavnajela',
-    name: 'GlavnaJela',
+    name: 'Glavna Jela',
     component: GlavnaJela
   },
   {
@@ -60,12 +60,12 @@ const routes = [
   },
   {
     path: '/pregledjela',
-    name: 'PregledJela',
+    name: 'Pregled Jela',
     component: PregledJela
   },
   {
     path: '/mojnalog',
-    name: 'MojNalog',
+    name: 'Moj Nalog',
     component: MojNalog
   }
 ]
