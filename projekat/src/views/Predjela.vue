@@ -7,7 +7,7 @@
             <img :src="'/images/photo' + d.slikaIndex" alt="Dish Image">
             <h3>{{ $t(`menu.dishes.${d.ime}`) }}</h3>              
             <p class="price">{{ $t('menu.rating') }}: {{ d.ocena }}/5</p>
-            <button @click='fun(d)'>{{ $t('menu.viewDish') }}</button>
+            
           </div>
         </div>
         {{ error }}
